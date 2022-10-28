@@ -5,12 +5,13 @@
     "keycloak": {
       "clientId": "FRONTEND_KC_CLIENTID",
       "realm": "FRONTEND_KC_REALM",
-      "serverUrl": "FRONTEND_KC_SERVERURL"
+      "serverUrl": "FRONTEND_KC_SERVERURL",
+      "presReqConfId": "FRONTEND_KC_PRES_REQ_CONF_ID"
     }
   },
   "server": {
     "apiPath": "SERVER_APIPATH",
-    "basePath" : "SERVER_BASEPATH",
+    "basePath": "SERVER_BASEPATH",
     "bodyLimit": "SERVER_BODYLIMIT",
     "keycloak": {
       "clientId": "SERVER_KC_CLIENTID",

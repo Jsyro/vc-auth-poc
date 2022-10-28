@@ -1,4 +1,5 @@
 cp ./custom-vcauthn-realm.json oidc/docker/keycloak/config/custom-vcauthn-realm.json
+(cd oidc/docker && ./manage build)
 (cd oidc/docker && GENESIS_URL="http://test.bcovrin.vonx.io/genesis" KEYCLOAK_IMPORT="/tmp/custom-vcauthn-realm.json" ./manage up-bg)
 
 # name of pres-req
@@ -20,4 +21,4 @@ curl --connect-timeout 5 \
 
 
 # Start vue app with PRES_REQ_CONF_ID added
-PRES_REQ_CONF_ID="${PRES_REQ_CONF_ID}" docker-compose -f ./vue/docker-compose.yaml up -d
+PRES_REQ_CONF_ID="${PRES_REQ_CONF_ID}asdasd" docker-compose -f ./vue/docker-compose.yaml up -d

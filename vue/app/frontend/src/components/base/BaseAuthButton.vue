@@ -20,6 +20,7 @@ export default {
       'createLoginUrl',
       'createLogoutUrl',
       'keycloakReady',
+      'presReqConfId',
     ]),
     hasLogin() {
       return this.$route && this.$route.meta && this.$route.meta.hasLogin;
@@ -30,7 +31,8 @@ export default {
       if (this.keycloakReady) {
         window.location.replace(
           this.createLoginUrl({ idpHint: 'idir' }) +
-            '&pres_req_conf_id=test-request-config'
+            '&pres_req_conf_id=' +
+            this.presReqConfId
         );
       }
     },

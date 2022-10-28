@@ -7,4 +7,4 @@ services:
     build: .
     command: npm run serve
     environment:
-      PRES_REQ_CONF_ID: ${PRES_REQ_CONF_ID}
+      FRONTEND_KC_PRES_REQ_CONF_ID: ${PRES_REQ_CONF_ID}
