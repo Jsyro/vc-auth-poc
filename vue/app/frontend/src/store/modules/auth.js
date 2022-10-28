@@ -19,6 +19,7 @@ export default {
     // In most cases, when this becomes populated, we end up doing a redirect flow,
     // so when we return to the app, it is fresh again and undefined
     redirectUri: undefined,
+    presReqConfId: 'test-request-config', //TODO: load this via config response
   },
   getters: {
     authenticated: () => Vue.prototype.$keycloak.authenticated,
@@ -45,6 +46,7 @@ export default {
     keycloakReady: () => Vue.prototype.$keycloak.ready,
     keycloakSubject: () => Vue.prototype.$keycloak.subject,
     moduleLoaded: () => !!Vue.prototype.$keycloak,
+    presReqConfId: (state) => state.presReqConfId,
     realmAccess: () => Vue.prototype.$keycloak.tokenParsed.realm_access,
     redirectUri: (state) => state.redirectUri,
     resourceAccess: () => Vue.prototype.$keycloak.tokenParsed.resource_access,
@@ -74,7 +76,8 @@ export default {
         // Redirect to Keycloak
         window.location.replace(
           getters.createLoginUrl(options) +
-            '&pres_req_conf_id=test-request-config'
+            '&pres_req_conf_id=' +
+            getters.presReqConfId
         );
       }
     },

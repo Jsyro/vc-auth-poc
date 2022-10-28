@@ -8,3 +8,10 @@ services:
     command: npm run serve
     environment:
       FRONTEND_KC_PRES_REQ_CONF_ID: ${PRES_REQ_CONF_ID}
+      FRONTEND_KC_SERVERURL: "http://localhost:8180/auth"
+      FRONTEND_KC_REALM: "vc-authn"
+      FRONTEND_KC_CLIENTID: "vue-fe"
+      SERVER_KC_SERVERURL: "http://localhost:8180/auth"
+      SERVER_KC_REALM: "vc-authn"
+      SERVER_KC_CLIENTSECRET: "00f0AgaFHsgXgJ9nnWBCcIVYyhjjIZzi"
+      SERVER_KC_CLIENTID: "vue-fe"
