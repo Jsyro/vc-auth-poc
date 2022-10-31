@@ -46,7 +46,7 @@ export default {
     keycloakReady: () => Vue.prototype.$keycloak.ready,
     keycloakSubject: () => Vue.prototype.$keycloak.subject,
     moduleLoaded: () => !!Vue.prototype.$keycloak,
-    presReqConfId: (state) => state.presReqConfId,
+    presReqConfId: () => Vue.prototype.$config.keycloak.presReqConfId,
     realmAccess: () => Vue.prototype.$keycloak.tokenParsed.realm_access,
     redirectUri: (state) => state.redirectUri,
     resourceAccess: () => Vue.prototype.$keycloak.tokenParsed.resource_access,

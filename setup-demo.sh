@@ -21,4 +21,42 @@ curl --connect-timeout 5 \
 
 
 # Start vue app with PRES_REQ_CONF_ID added
-PRES_REQ_CONF_ID="${PRES_REQ_CONF_ID}asdasd" docker-compose -f ./vue/docker-compose.yaml up -d
+PRES_REQ_CONF_ID="${PRES_REQ_CONF_ID}" docker-compose -f ./vue/docker-compose.yaml up -d
+
+# curl -X POST "http://localhost:5678/issue-credential/create-offer" \
+#      -H "Content-Type: application/json-patch+json" \
+#      -d {
+#   "auto_issue": "true",
+#   "auto_remove": "false",
+#   "comment": "issue-test-cred",
+#   "cred_def_id": "WgWxqztrNooG92RXvxSTWv:3:CL:20:tag",
+#   "credential_preview": {
+#     "@type": "issue-credential/1.0/credential-preview",
+#     "attributes": [
+#       {
+#         "name": "email",
+#         "value": "test@auth.com"
+#       },
+#             {
+#         "name": "first_name",
+#         "value": "fname"
+#       },
+#             {
+#         "name": "last_name",
+#         "value": "lname"
+#       }
+#     ]
+#   },
+#   "trace": true
+# }
+
+# curl -X POST "http://localhost:5678/credential-definitions" \
+#      -H "Content-Type: application/json-patch+json" \
+# {
+#   "schema_id": "WgWxqztrNooG92RXvxSTWv:2:schema_name:1.0",
+#   "support_revocation": false,
+#   "tag": "default"
+# }
+
+# qrencode -t ASCII -o 
+
