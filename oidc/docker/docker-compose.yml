@@ -106,7 +106,7 @@ services:
       echo waiting for controller-db ...;
       sleep 15;
       dotnet VCAuthn.dll"
-  
+
   controller-dev:
     image: vc-authn-oidc-controller-dev
     ports:
