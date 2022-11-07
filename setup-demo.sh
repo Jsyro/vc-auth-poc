@@ -19,7 +19,7 @@ curl --connect-timeout 5 \
      -H "accept: application/json" \
      -H "X-Api-Key: controller-api-key" \
      -H "Content-Type: application/json-patch+json" \
-     -d "{ \"id\": \"$PRES_REQ_CONF_ID\", \"subject_identifier\": \"email\", \"configuration\": { \"name\": \"Basic Proof\", \"version\": \"1.0\", \"requested_attributes\": [ { \"name\": \"first_name\", \"restrictions\": [] }, { \"name\": \"last_name\", \"restrictions\": [] } ], \"requested_predicates\": [] }}"
+     -d "{ \"id\": \"$PRES_REQ_CONF_ID\", \"subject_identifier\": \"first_name\", \"configuration\": { \"name\": \"Basic Proof\", \"version\": \"1.0\", \"requested_attributes\": [ { \"name\": \"first_name\", \"restrictions\": [] }, { \"name\": \"last_name\", \"restrictions\": [] } ], \"requested_predicates\": [] }}"
 
 
 
