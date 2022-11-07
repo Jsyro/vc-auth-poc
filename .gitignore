@@ -1,2 +1,4 @@
 
 oidc/docker/keycloak/config/hsperfdata_jboss/
+
+oidc/docker/keycloak/config/custom-vcauthn-realm.json
