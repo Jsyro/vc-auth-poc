@@ -25,7 +25,7 @@ curl --connect-timeout 5 \
 
 
 # Start vue app with PRES_REQ_CONF_ID added
-PRES_REQ_CONF_ID="${PRES_REQ_CONF_ID}" docker-compose -f ./vue/docker-compose.yaml up -d
+PRES_REQ_CONF_ID="${PRES_REQ_CONF_ID}" docker-compose -f ./vue/docker-compose.yaml up --build -d
 
 # curl -X POST "http://localhost:5678/issue-credential/create-offer" \
 #      -H "Content-Type: application/json-patch+json" \
