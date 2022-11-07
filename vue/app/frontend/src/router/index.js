@@ -1,7 +1,6 @@
 import NProgress from 'nprogress';
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import { default as authStore } from '@/store/modules/auth';
 
 Vue.use(VueRouter);
 
@@ -66,26 +65,24 @@ export default function getRouter(basePath = '/') {
         redirectUri: redirect,
       });
       window.location.replace(
-        loginUrl + '&pres_req_conf_id=' + authStore.presReqConfId
+        loginUrl +
+          '&pres_req_conf_id=' +
+          Vue.prototype.$config.keycloak.presReqConfId
       );
     }
     if (
-      authStore.tokenParsed &&
-      authStore.tokenParsed.pres_req_conf_id &&
-      authStore.tokenParsed.pres_req_conf_id != authStore.presReqConfId
+      Vue.prototype.$keycloak.tokenParsed &&
+      Vue.prototype.$keycloak.tokenParsed.pres_req_conf_id &&
+      Vue.prototype.$keycloak.tokenParsed.pres_req_conf_id !=
+        Vue.prototype.$config.keycloak.presReqConfId
     ) {
       // console.log('PRES_REQ_CONF_ID mismatch');
       // if satisified request was NOT the configured request, login is invalid
-      const redirect = location.origin + basePath + to.path + location.search;
-      const loginUrl = router.app.$keycloak.createLoginUrl({
+      const redirect = location.origin + basePath;
+      const logoutUrl = router.app.$keycloak.createLogoutUrl({
         redirectUri: redirect,
       });
-      window.location.replace(
-        loginUrl +
-          '&pres_req_conf_id=' +
-          authStore.presReqConfId +
-          '&reason=invalid'
-      );
+      window.location.replace(logoutUrl);
     } else {
       document.title = to.meta.title
         ? to.meta.title

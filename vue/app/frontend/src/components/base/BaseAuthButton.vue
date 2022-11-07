@@ -30,9 +30,7 @@ export default {
     login() {
       if (this.keycloakReady) {
         window.location.replace(
-          this.createLoginUrl({ idpHint: 'idir' }) +
-            '&pres_req_conf_id=' +
-            this.presReqConfId
+          this.createLoginUrl() + '&pres_req_conf_id=' + this.presReqConfId
         );
       }
     },
@@ -40,7 +38,6 @@ export default {
       if (this.keycloakReady) {
         window.location.replace(
           this.createLogoutUrl({
-            idpHint: 'idir',
             redirectUri: `${location.origin}/${this.$config.basePath}`,
           })
         );
