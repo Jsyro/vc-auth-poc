@@ -1,5 +1,5 @@
 version: 1
-authtoken: 1ocYbDCXoYyHcrhOMkLS6njK4c5_3Xv5HhoRYFf3kqq4NCfGq
+authtoken: <<NGROK AUTHTOKEN>>
 tunnels:
   vc-authn-controller:
     addr: 5001
