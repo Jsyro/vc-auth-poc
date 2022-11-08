@@ -35,6 +35,10 @@ All apps are configured to use the test.bcovrin.vonx.io Sovrin Hyperlegder
 
 ## Running the demo
 
+### Prerequisites
+
+1. A mobile wallet application with a credential containing at least the attributes `first_name` and `last_name`.
+
 From this folder
 
 First terminal
@@ -44,9 +48,11 @@ cd /oidc/demo/scripts
 ./start-ngrok.sh
 ```
 
-- Copy the second ngrok address from the output.
+- Copy the second ngrok address from the output shown as <NGROK_CONTROLLER_URL> in the example below.
 
-'Running in demo mode, will use http://test.bcovrin.vonx.io/genesis to fetch the genesis transaction, <NGROK_AGENT_URL> for the agent and <NGROK_CONTROLLER_URL> for the controller.'
+`Running in demo mode, will use http://test.bcovrin.vonx.io/genesis to fetch the genesis transaction, <NGROK_AGENT_URL> for the agent and <NGROK_CONTROLLER_URL> for the controller.`
+
+---
 
 Second Terminal
 
@@ -54,4 +60,31 @@ Second Terminal
 ./setup-demo.sh
 ```
 
-navigate to http://localhost:8180
+---
+
+In a browser navigate to http://localhost:8180
+
+1. login with username `admin` and password `admin`
+1. Identity Providers -> 'Verifiable Credential Access'
+
+1. Change the following
+   - `Authorization URL` from `**http://localhost:5001**/vc/connect/authorize` -> `<NGROK_CONTROLLER_URL>/vc/connect/authorize`
+   - `Token URL` from `http://localhost:5001/vc/connect/token` -> `<NGROK_CONTROLLER_URL>/vc/connect/token`
+
+---
+
+In a browser navigate to http://localhost:8080
+
+1. Click Login
+2. Click 'Verifiable Credential Access'
+3. Scan QR code with mobile device, and present the credential.
+
+### What happened
+
+1. The application sent you to keycloak so you could login, and included the `pres_req_conf_id`
+1. keycloak forwarded you to the vc-authn-oidc application
+1. vc-authn-oidc then used that `pres_req_conf_id` to present the QR code to the user with the connectionless presentation exchange with the 'presentation_request' from the 'presentation_request_configuration'
+1. vc-authn agent receives the presentation and verifies it and calls the webhook url for the vc-authn controller
+1. the vc-authn controller then completes the OIDC identity provider login process
+1. the vc-authn-oidc FE is polling the controller and now finds that the presentation has been verified and the login was successful, and redirects the FE back to the vue-scaffold
+1. And now we have a OIDC JWT token to use the secured application and it contains the configured claims.
