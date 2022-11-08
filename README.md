@@ -1,6 +1,6 @@
 # vc-auth-poc
 
-This repo is an exercise to connect the vc-authn-oidc project (which has been updated in this repo to use 16.0.0).
+This repo is an exercise to connect the vc-authn-oidc project (which has been updated in this repo to use 16.0.0), with an existing project which enable Verifiable Credentials to be used as an Identity Provider to a OIDC platform, and using that to control authentication to a web application.
 
 This demo includes:
 
