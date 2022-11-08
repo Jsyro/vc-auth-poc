@@ -1,3 +1,4 @@
+#!/bin/bash
 cp ./custom-vcauthn-realm.json oidc/docker/keycloak/config/custom-vcauthn-realm.json
 (cd oidc/docker && ./manage build)
 (cd oidc/docker && GENESIS_URL="http://test.bcovrin.vonx.io/genesis" KEYCLOAK_IMPORT="/tmp/custom-vcauthn-realm.json" ./manage start-demo)
