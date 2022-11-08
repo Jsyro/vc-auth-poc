@@ -23,7 +23,7 @@ All apps are configured to use the test.bcovrin.vonx.io Sovrin Hyperlegder
 2. vc-authn-oidc contains.
 
    1. a Presentation Request Configuration names `test-request-config`
-      1. The presentation request is for two values (`first_name`, and `last_name`) with no restrictions. (see demo walkthrough for how to obtain this credential)
+      1. The presentation request is for two values (`first_name`, and `last_name`) with no restrictions. (the demo does not currently include how to obtain this credential)
       1. `subject_identifier` is the claim value that will be used as the KC username and must be key that is in presentation request.
          - If your use case intends to maintain amonyminty (the presentation request will not contain an unique identifier), then ensure that the VC IDP will not import any attribute as the username, and do not set `subject_identifier`.
            - This will mean that keycloak will create a user record every session. There is no mitigation strategy for this bloat yet.
@@ -38,6 +38,8 @@ All apps are configured to use the test.bcovrin.vonx.io Sovrin Hyperlegder
 ### Prerequisites
 
 1. A mobile wallet application with a credential containing at least the attributes `first_name` and `last_name`.
+
+**PROVIDE INSTRUCTIONS on how to issue yourself a credential for the demo**
 
 From this folder
 
@@ -89,12 +91,10 @@ In a browser navigate to http://localhost:8080
 1. the vc-authn-oidc FE is polling the controller and now finds that the presentation has been verified and the login was successful, and redirects the FE back to the vue-scaffold
 1. And now we have a OIDC JWT token to use the secured application and it contains the configured claims.
 
+Architechture Roadmap:
 
-Architechture Roadmap: 
-
-1) Replace standalone aca-py agent with a tenant in a Traction installation
-2) Add Issuer controller and FE to connect and offer credential
-3) Improve administration of the IDP service (by enhancing or replacing the existing vc-authn-oidc project)
+1. Replace standalone aca-py agent with a tenant in a Traction installation
+2. Add Issuer controller and FE to connect and offer credential
+3. Improve administration of the IDP service (by enhancing or replacing the existing vc-authn-oidc project)
 
 ![image](https://user-images.githubusercontent.com/5376854/200621504-2136363c-96fb-40cf-875c-11ad0f73f8c8.png)
-
