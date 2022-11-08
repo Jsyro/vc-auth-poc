@@ -5,9 +5,9 @@ This repo is an exercise to connect the vc-authn-oidc project (which has been up
 This demo includes:
 
 1. jboss/keycloak 16.0.0 @ http://localhost:8180
-1. vc-authn-oidc application @ http://localhost:5001 (tunneled with ngrok)
+1. [vc-authn-oidc](https://github.com/bcgov/vc-authn-oidc) application @ http://localhost:5001 (tunneled with ngrok)
 1. An acapy agent for the vc-authn-oidc project (tunneled with ngrok)
-1. vue-scaffold-template application that has been modified to set and forward a `pres_req_conf_id` to the vc identity provider
+1. [vue-scaffold](https://github.com/bcgov/vue-scaffold) application that has been modified to set and forward a `pres_req_conf_id` to the vc identity provider
 
 Important Configuration notes for each application:
 
@@ -88,3 +88,12 @@ In a browser navigate to http://localhost:8080
 1. the vc-authn controller then completes the OIDC identity provider login process
 1. the vc-authn-oidc FE is polling the controller and now finds that the presentation has been verified and the login was successful, and redirects the FE back to the vue-scaffold
 1. And now we have a OIDC JWT token to use the secured application and it contains the configured claims.
+
+
+Architechture Roadmap: 
+
+1) Replace standalone aca-py agent with a tenant in a Traction installation
+2) Add Issuer controller and FE to connect and offer credential
+3) Improve administration of the IDP service (by enhancing or replacing the existing vc-authn-oidc project)
+
+![image](https://user-images.githubusercontent.com/5376854/200620625-98d206d4-981f-409e-b96a-910a9b25c595.png)
