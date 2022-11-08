@@ -96,4 +96,5 @@ Architechture Roadmap:
 2) Add Issuer controller and FE to connect and offer credential
 3) Improve administration of the IDP service (by enhancing or replacing the existing vc-authn-oidc project)
 
-![image](https://user-images.githubusercontent.com/5376854/200620625-98d206d4-981f-409e-b96a-910a9b25c595.png)
+![image](https://user-images.githubusercontent.com/5376854/200621504-2136363c-96fb-40cf-875c-11ad0f73f8c8.png)
+
